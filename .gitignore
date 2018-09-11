@@ -1,2 +1,11 @@
-*.pyc
-.idea
+# Python byte-compilation / cache
+*.py[cod]
+__pycache__/
+
+# JetBrains IDE's, Pycharm
+.idea/
+.pycharmrc
+
+# MacOS files useful to ignore
+.DS_Store
+._*
