@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "==> Install tests"
+set -ex
+
+cp -a ../docker-compose.test.yml .
+cp -ar ../tests/ .
+sed -i "s/^FROM.*/FROM digitdroid\/python3:latest/" tests/Dockerfile
