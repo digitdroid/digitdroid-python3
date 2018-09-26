@@ -23,8 +23,8 @@ RUN set -ex \
     && wget -q -O /usr/local/bin/gosu.asc \
        "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture).asc" \
     && export GNUPGHOME="$(mktemp -d)" \
-	&& for server in $(/bin/echo -e $KEY_SERVERS | perl -MList::Util=shuffle -e 'print shuffle(<>);') ; do \
-		    gpg --keyserver "$server" --recv-keys $GOSU_KEY && break || : ; \
+    && for server in $(/bin/echo -e $KEY_SERVERS | perl -MList::Util=shuffle -e 'print shuffle(<>);') ; do \
+            gpg --keyserver "$server" --recv-keys $GOSU_KEY && break || : ; \
        done \
     && gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu \
     && rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc \
@@ -37,8 +37,8 @@ RUN set -ex \
     && wget -q -O /usr/local/bin/tini.asc \
         "https://github.com/krallin/tini/releases/download/$TINI_VERSION/tini-$(dpkg --print-architecture).asc" \
     && export GNUPGHOME="$(mktemp -d)" \
-	&& for server in $(/bin/echo -e $KEY_SERVERS | perl -MList::Util=shuffle -e 'print shuffle(<>);') ; do \
-		    gpg --keyserver "$server" --recv-keys $TINI_KEY && break || : ; \
+    && for server in $(/bin/echo -e $KEY_SERVERS | perl -MList::Util=shuffle -e 'print shuffle(<>);') ; do \
+            gpg --keyserver "$server" --recv-keys $TINI_KEY && break || : ; \
        done \
     && gpg --batch --verify /usr/local/bin/tini.asc /usr/local/bin/tini \
     && rm -rf "$GNUPGHOME" /usr/local/bin/tini.asc \
