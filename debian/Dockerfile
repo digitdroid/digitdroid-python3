@@ -1,8 +1,8 @@
-ARG PY3_IMAGE=3.6.6-slim-stretch
+ARG PY3_IMAGE=3.6.7-slim-stretch
 
 FROM python:$PY3_IMAGE
 
-ARG GOSU_VER=1.10
+ARG GOSU_VER=1.11
 ARG GOSU_KEY=B42F6819007F00F88E364FD4036A9C25BF357DD4
 ARG TINI_VER=v0.18.0
 ARG TINI_KEY=595E85A6B1B4779EA4DAAEC70B588DFF0527A9B7
@@ -24,9 +24,9 @@ RUN set -ex \
        "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$(dpkg --print-architecture).asc" \
     && export GNUPGHOME="$(mktemp -d)" \
     && for server in $(/bin/echo -e $KEY_SERVERS | perl -MList::Util=shuffle -e 'print shuffle(<>);') ; do \
-            gpg --keyserver "$server" --recv-keys $GOSU_KEY && break || : ; \
+            gpg --no-tty --keyserver "$server" --recv-keys $GOSU_KEY && break || : ; \
        done \
-    && gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu \
+    && gpg --no-tty --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu \
     && rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc \
     && chmod +x /usr/local/bin/gosu \
     && gosu nobody:root bash -c 'whoami && id'
@@ -38,9 +38,9 @@ RUN set -ex \
         "https://github.com/krallin/tini/releases/download/$TINI_VERSION/tini-$(dpkg --print-architecture).asc" \
     && export GNUPGHOME="$(mktemp -d)" \
     && for server in $(/bin/echo -e $KEY_SERVERS | perl -MList::Util=shuffle -e 'print shuffle(<>);') ; do \
-            gpg --keyserver "$server" --recv-keys $TINI_KEY && break || : ; \
+            gpg --no-tty --keyserver "$server" --recv-keys $TINI_KEY && break || : ; \
        done \
-    && gpg --batch --verify /usr/local/bin/tini.asc /usr/local/bin/tini \
+    && gpg --no-tty --batch --verify /usr/local/bin/tini.asc /usr/local/bin/tini \
     && rm -rf "$GNUPGHOME" /usr/local/bin/tini.asc \
     && chmod +x /usr/local/bin/tini \
     && tini -vvv -- bash -c 'true'

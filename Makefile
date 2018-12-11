@@ -1,5 +1,5 @@
-py3_image := 3.6.6-slim-stretch
-gosu_ver := 1.10
+py3_image := 3.6.7-slim-stretch
+gosu_ver := 1.11
 gosu_key := B42F6819007F00F88E364FD4036A9C25BF357DD4
 tini_ver := v0.18.0
 tini_key := 595E85A6B1B4779EA4DAAEC70B588DFF0527A9B7
