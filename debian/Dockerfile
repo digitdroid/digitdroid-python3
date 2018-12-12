@@ -51,7 +51,7 @@ RUN set -ex \
         git gcc make gettext libcurl4-openssl-dev \
         libc6-dev zlib1g-dev libpq-dev libexpat1-dev \
         libxml2-dev libxslt1-dev libjansson-dev libpcre3-dev \
-        libpng-dev libfreetype6-dev libjpeg-dev libffi-dev \
+        libpng-dev libfreetype6-dev libjpeg-dev libffi-dev libmagic-dev \
     && rm -rf /var/cache/apt/* \
     && rm -rf /usr/share/doc/* \
     && rm -rf /usr/share/man/* \

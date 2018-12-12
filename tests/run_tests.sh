@@ -63,6 +63,6 @@ assert test -O /venv
 assert test -f /tmp/test-file.sh
 assert test -f /tmp/test-file.py
 
-assert test "$(pip freeze -r /requirements.txt | grep "." | tail -n 2 | head -n 1)" = "pytz==2018.5"
+assert test "$(pip freeze -r /requirements.txt | grep "." | tail -n 2 | head -n 1)" = "pytz==2018.7"
 
 END_TIME="$(date -u +%s)"
