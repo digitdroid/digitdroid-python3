@@ -1,6 +1,6 @@
 #!/bin/bash
-echo "==> Tagging as default"
+echo "==> Tagging as $IMAGE_VERSION"
 set -ex
 
-docker tag $IMAGE_NAME $DOCKER_REPO:latest
-docker push $DOCKER_REPO:latest
+docker tag $IMAGE_NAME $DOCKER_REPO:$IMAGE_VERSION
+docker push $DOCKER_REPO:$IMAGE_VERSION
