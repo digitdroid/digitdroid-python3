@@ -1,4 +1,4 @@
-image_version := 3.6.10
+image_version := 3.8.2
 py3_image := $(image_version)-slim-buster
 gosu_ver := 1.12
 gosu_key := B42F6819007F00F88E364FD4036A9C25BF357DD4
