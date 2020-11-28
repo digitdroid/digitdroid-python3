@@ -1,6 +1,6 @@
-ARG IMAGE_VERSION
+ARG PYTHON_VERSION
 
-FROM digitdroid/python3:$IMAGE_VERSION
+FROM digitdroid/python3:$PYTHON_VERSION
 
 COPY requirements.txt /requirements.txt
 RUN gosu app pip install --no-cache-dir -r /requirements.txt

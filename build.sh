@@ -1,7 +1,7 @@
 #!/bin/sh
 
-IMAGE_VERSION=3.8.2
-PY3_IMAGE=${IMAGE_VERSION}-slim-buster
+PYTHON_VERSION=3.8.6
+PY3_IMAGE=${PYTHON_VERSION}-slim-buster
 GOSU_VER=1.12
 GOSU_KEY=B42F6819007F00F88E364FD4036A9C25BF357DD4
 TINI_VER=v0.19.0
@@ -18,7 +18,7 @@ END
 )
 
 docker build \
-       --build-arg IMAGE_VERSION=${IMAGE_VERSION} \
+       --build-arg PYTHON_VERSION=${PYTHON_VERSION} \
        --build-arg PY3_IMAGE=${PY3_IMAGE} \
        --build-arg GOSU_VER=${GOSU_VER} \
        --build-arg GOSU_KEY=${GOSU_KEY} \
@@ -26,4 +26,4 @@ docker build \
        --build-arg TINI_KEY=${TINI_KEY} \
        --build-arg TINI_SUBREAPER=${TINI_SUBREAPER} \
        --build-arg KEY_SERVERS="${KEY_SERVERS}" \
-       --tag digitdroid/python3:${IMAGE_VERSION} ./debian
+       --tag digitdroid/python3:${PYTHON_VERSION} ./debian

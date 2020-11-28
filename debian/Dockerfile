@@ -1,5 +1,5 @@
-ARG IMAGE_VERSION=3.8.2
-ARG PY3_IMAGE=$IMAGE_VERSION-slim-buster
+ARG PYTHON_VERSION=3.8.6
+ARG PY3_IMAGE=$PYTHON_VERSION-slim-buster
 
 FROM python:$PY3_IMAGE
 
@@ -51,6 +51,7 @@ RUN set -ex \
     && rm -rf /var/cache/apt/* \
     && rm -rf /usr/share/doc/* \
     && rm -rf /usr/share/man/* \
+    && rm -rf /var/log/* \
     && rm -rf /var/lib/apt/lists/* \
     # add user and venv
     && useradd --uid 1000 --no-create-home --user-group app \

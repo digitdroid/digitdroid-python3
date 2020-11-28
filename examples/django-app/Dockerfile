@@ -1,4 +1,4 @@
-FROM digitdroid/python3:3.8.2
+FROM digitdroid/python3:3.8.6
 
 COPY ./docker-entrypoint.d/00_init-django-app.sh /docker-entrypoint.d/00_init-django-app.sh
 RUN chmod +x  /docker-entrypoint.d/00_init-django-app.sh

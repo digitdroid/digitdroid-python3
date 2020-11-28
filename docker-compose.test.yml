@@ -5,4 +5,4 @@ services:
     build:
       context: ./tests
       args:
-        - IMAGE_VERSION=${IMAGE_VERSION}
+        - PYTHON_VERSION=${PYTHON_VERSION}
